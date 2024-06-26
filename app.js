@@ -6,6 +6,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/authRoute");
+const propertyRoute = require("./routes/propertyRoute");
 
 // dotenv.config();
 
@@ -36,8 +37,11 @@ async function connectDatabase() {
 
 
 // user route here
-
 app.use('/api/auth',authRoute);
+
+// property route here 
+
+app.use('/api/properties',propertyRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`server started at port ${process.env.PORT}`);
