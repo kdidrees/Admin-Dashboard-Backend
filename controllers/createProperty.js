@@ -17,6 +17,7 @@ exports.createProperty = async (req, res) => {
     pricePerSqft,
     yearBuilt,
     garage,
+    description
   } = req.body;
 
   try {
@@ -38,6 +39,7 @@ exports.createProperty = async (req, res) => {
       pricePerSqft,
       yearBuilt,
       garage,
+      description,
       images,
     });
 
