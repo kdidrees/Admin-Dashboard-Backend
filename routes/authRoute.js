@@ -4,6 +4,7 @@ const {register} = require("../controllers/signupController")
 const {login} = require("../controllers/loginController");
 const verifyToken = require("../middlewares/jwtMiddleware");
 const {getAdminDetails} = require("../controllers/getAdminDetails");
+const {userLogout}    = require("../controllers/logoutController");
 
 const router = express.Router();
 
@@ -15,7 +16,9 @@ router.post("/register-admin",register);
 
 router.post("/login",login);
 
-router.post("/",verifyToken,getAdminDetails);
+router.get("/",verifyToken,getAdminDetails);
+
+router.get("/logout",userLogout)
 
 
 module.exports = router;

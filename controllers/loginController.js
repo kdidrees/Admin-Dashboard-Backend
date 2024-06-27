@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
     });
 
     // Set token as a cookie
-    res.cookie("token", token, { httpOnly: true });
+    res.cookie("token", token);
 
     // Send response with status 200 and JSON object
     return res.status(200).json({ message: "Admin logged in successfully", token });

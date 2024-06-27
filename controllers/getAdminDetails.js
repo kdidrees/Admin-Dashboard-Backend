@@ -10,7 +10,7 @@ exports.getAdminDetails = async (req, res) => {
     }
 
     // Return success response with user details
-    return res.json({ user, success: true });
+    return res.json({ name: user.username });
   } catch (err) {
     console.error("Error fetching user details:", err);
     return res.status(500).json({ error: "Internal server error" });
