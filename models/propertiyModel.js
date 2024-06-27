@@ -21,12 +21,13 @@ const propertySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  lotSize: {
-    type: Number,
-    required: true,
-  },
+
   address: {
     type: String,
+    required: true,
+  },
+  lotSize: {
+    type: Number,
     required: true,
   },
   propertyType: {
@@ -50,8 +51,12 @@ const propertySchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
+  description: {
+    type: String,
+    required: true,
+  },
 });
 
-const PropertyModel = mongoose.model("Properties", propertySchema);
+const PropertyModel = mongoose.model("properties", propertySchema);
 
 module.exports = PropertyModel;
