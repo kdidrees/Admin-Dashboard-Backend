@@ -1,5 +1,8 @@
-const PropertyModel = require("../models/propertiyModel");
+// controllers/propertyController.js
 
+const PropertyModel = require("../models/propertiyModel");
+const path = require("path");
+const fs = require("fs");
 
 exports.createProperty = async (req, res) => {
   const {
@@ -14,12 +17,16 @@ exports.createProperty = async (req, res) => {
     pricePerSqft,
     yearBuilt,
     garage,
-    images,
   } = req.body;
 
   try {
+    // Process file uploads
+    let images = [];
+    if (req.files && req.files.length > 0) {
+      images = req.files.map((file) => file.path);
+    }
+
     const newProperty = new PropertyModel({
-      images,
       price,
       bedrooms,
       bathrooms,
@@ -31,10 +38,11 @@ exports.createProperty = async (req, res) => {
       pricePerSqft,
       yearBuilt,
       garage,
+      images,
     });
 
     const property = await newProperty.save();
-    res.status(201).json({property,msg:"property create successfully"});
+    res.status(201).json({ property, msg: "success" });
   } catch (err) {
     console.error("Error creating property:", err);
     res.status(500).json({ error: "Server error" });

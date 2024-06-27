@@ -21,6 +21,7 @@ app.use(
   })
 );
 app.use(cookieParser());
+app.use(express.static("public"));
 
 // connect database here
 
