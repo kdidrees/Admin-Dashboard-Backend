@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const propertySchema = new mongoose.Schema({
-  images: {
-    type: [String],
-    default: [],
-  },
   price: {
     type: Number,
     required: true,
@@ -21,7 +17,6 @@ const propertySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-
   address: {
     type: String,
     required: true,
@@ -54,6 +49,10 @@ const propertySchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
+  },
+  images: {
+    type: [String],
+    default: [],
   },
 });
 

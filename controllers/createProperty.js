@@ -3,7 +3,6 @@ const PropertyModel = require("../models/propertiyModel");
 
 exports.createProperty = async (req, res) => {
   const {
-    images,
     price,
     bedrooms,
     bathrooms,
@@ -15,6 +14,7 @@ exports.createProperty = async (req, res) => {
     pricePerSqft,
     yearBuilt,
     garage,
+    images,
   } = req.body;
 
   try {
