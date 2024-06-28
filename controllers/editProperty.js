@@ -1,7 +1,7 @@
 const PropertyModel = require("../models/propertiyModel");
 
 exports.editProperty = async (req, res) => {
-  const { id } = req.params.id;
+  const { id } = req.params;
 
   const {
     price,
@@ -18,7 +18,7 @@ exports.editProperty = async (req, res) => {
     description,
   } = req.body;
 
-  const images = req.files.map((file) => file.path);
+  const images = req.files ? req.files.map((file) => file.path) : [];
 
   try {
     const property = await PropertyModel.findById(id);
@@ -51,7 +51,7 @@ exports.editProperty = async (req, res) => {
       msg: "property updated successfully",
     });
   } catch (err) {
-    console.log('error updating property',err );
-    res.status(500)
+    console.log("error updating property", err);
+    res.status(500);
   }
 };
