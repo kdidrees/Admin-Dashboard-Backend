@@ -1,6 +1,6 @@
 // controllers/propertyController.js
 
-const PropertyModel = require("../models/propertiyModel");
+const PropertyModel = require("../models/propertyModel");
 const path = require("path");
 const fs = require("fs");
 

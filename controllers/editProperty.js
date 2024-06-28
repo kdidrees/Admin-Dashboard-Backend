@@ -1,4 +1,4 @@
-const PropertyModel = require("../models/propertiyModel");
+const PropertyModel = require("../models/propertyModel");
 
 exports.editProperty = async (req, res) => {
   const { id } = req.params;
