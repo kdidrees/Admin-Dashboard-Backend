@@ -15,7 +15,7 @@ router.post("/create-property", verifyToken, upload, createProperty);
 router.post("/edit-property/:id", editProperty);
 
 // get all properties
-router.get("/all", verifyToken, allProperty);
+router.get("/all", allProperty);
 
 // get property by id 
 
