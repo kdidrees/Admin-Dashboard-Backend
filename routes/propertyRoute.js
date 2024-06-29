@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/create-property", verifyToken, upload, createProperty);
 
 // Route to edit property
-router.post("/edit-property/:id", editProperty);
+router.put("/edit-property/:id", editProperty);
 
 // get all properties
 router.get("/all", allProperty);

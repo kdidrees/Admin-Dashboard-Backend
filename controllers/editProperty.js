@@ -18,15 +18,24 @@ exports.editProperty = async (req, res) => {
     description,
   } = req.body;
 
-  const images = req.files ? req.files.map((file) => file.path) : [];
 
   try {
+ 
     const property = await PropertyModel.findById(id);
 
     if (!property) {
       return res.status(404).json({ error: "property not found" });
     }
 
+        // Process file uploads
+       let images = property.images;
+       
+       if(req.files && req.files.length>0){
+        images = req.files.map((file)=>file.path) //  update with new images
+       }
+
+
+        
     // update property fields
     property.price = price;
     property.bedrooms = bedrooms;
@@ -40,10 +49,7 @@ exports.editProperty = async (req, res) => {
     property.yearBuilt = yearBuilt;
     property.garage = garage;
     property.description = description;
-
-    if (images.length > 0) {
-      property.images = images;
-    }
+    property.images = images;  // update images array
 
     const updatedProperty = await property.save();
     res.json({
