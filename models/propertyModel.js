@@ -53,6 +53,10 @@ const propertySchema = new mongoose.Schema({
     type: [String],
     default: [],
   },
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const PropertyModel = mongoose.model("properties", propertySchema);
