@@ -1,0 +1,1 @@
+const PropertyModel = require('../models')
