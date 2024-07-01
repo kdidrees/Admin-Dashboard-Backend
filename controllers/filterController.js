@@ -4,7 +4,15 @@ const PropertyModel = require("../models/propertyModel");
 
 exports.FilterProperties = async (req, res) => {
   try {
-    const { minPrice, maxPrice, propertyType } = req.query;
+    const {
+      minPrice,
+      maxPrice,
+      propertyType,
+      minBedrooms,
+      maxBedrooms,
+      minBathrooms,
+      maxBathrooms,
+    } = req.query;
 
     // Build the query object
 
@@ -19,6 +27,26 @@ exports.FilterProperties = async (req, res) => {
     }
     if (propertyType) {
       query.propertyType = propertyType;
+    }
+
+    if (minBedrooms) {
+      query.bedrooms = { $gte: minBedrooms };
+    }
+
+    if (maxBedrooms) {
+      query.bedrooms = query.bedrooms
+        ? { ...query.bedrooms, $lte: maxBedrooms }
+        : { $lte: maxBedrooms };
+    }
+
+    if (minBathrooms) {
+      query.bathrooms = { $gte: minBathrooms };
+    }
+
+    if (maxBathrooms) {
+      query.bathrooms = query.bathrooms
+        ? { ...query.bathrooms, $lte: maxBathrooms }
+        : { $lte: maxBathrooms };
     }
 
     // fetch filtered properties from database
