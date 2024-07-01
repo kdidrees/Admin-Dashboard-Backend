@@ -5,6 +5,7 @@ const verifyToken = require("../middlewares/jwtMiddleware");
 const { editProperty } = require("../controllers/editProperty");
 const { allProperty } = require("../controllers/allProperty");
 const { getPropertyById } = require("../controllers/getPropertyById");
+const {FilterProperties} = require("../controllers/filterController");
 
 const router = express.Router();
 
@@ -20,5 +21,8 @@ router.get("/all", allProperty);
 // get property by id 
 
 router.get("/getpropertybyid/:id",getPropertyById);
+
+// route for filtering properties
+router.get('/filter',FilterProperties);
 
 module.exports = router;
