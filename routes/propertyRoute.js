@@ -5,9 +5,7 @@ const verifyToken = require("../middlewares/jwtMiddleware");
 const { editProperty } = require("../controllers/editProperty");
 const { allProperty } = require("../controllers/allProperty");
 const { getPropertyById } = require("../controllers/getPropertyById");
-const {FilterProperties} = require("../controllers/filterController");
 const {deletePropertyById} = require("../controllers/softDelete");
-const {sendEmail}   = require("../controllers/contactEmail")
 
 const router = express.Router();
 
@@ -26,7 +24,6 @@ router.get("/getpropertybyid/:id",getPropertyById);
 // soft delete the property by id 
 router.delete('/delete-property/:id',deletePropertyById);
 
-// send email route here 
-router.post('/contact',sendEmail);
+
 
 module.exports = router;

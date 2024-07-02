@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/authRoute");
 const propertyRoute = require("./routes/propertyRoute");
+const contactRoute = require("./routes/contactRoute");
 
 // dotenv.config();
 
@@ -40,8 +41,10 @@ async function connectDatabase() {
 app.use('/api/auth',authRoute);
 
 // property route here 
-
 app.use('/api/properties',propertyRoute);
+
+// contact route here 
+app.use('/api/contact',contactRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`server running on  http://localhost:${process.env.PORT}`);

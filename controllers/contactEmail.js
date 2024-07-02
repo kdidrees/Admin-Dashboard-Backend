@@ -10,7 +10,7 @@ exports.sendEmail = async (req, res) => {
     const { name, email, phone, query } = req.body;
 
     const mailOptions = {
-      from: "GrowXads <noreply@sandbox046522edaae545eaa7f03e236e5471d6.mailgun.org>",
+      from: "your dream house <noreply@sandbox046522edaae545eaa7f03e236e5471d6.mailgun.org>",
       to: "umarkhurshid3@gmail.com", // admin email here
       subject: "New Query Form Submission",
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nQuery: ${query}`,
