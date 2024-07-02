@@ -24,7 +24,7 @@ router.get("/all", allProperty);
 router.get("/getpropertybyid/:id",getPropertyById);
 
 // route for filtering properties
-router.get('/filter',FilterProperties);
+// router.get('/filter',FilterProperties);
 
 // soft delete the property by id 
 router.delete('/delete-property/:id',deletePropertyById);
