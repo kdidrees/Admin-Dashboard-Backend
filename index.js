@@ -27,7 +27,7 @@ app.use(express.static("public"));
 connectDatabase();
 async function connectDatabase() {
   try {
-    await mongoose.connect(process.env.DB_URI);
+    await mongoose.connect(process.env.DATABASE_URI);
 
     console.log("database connected");
   } catch (error) {

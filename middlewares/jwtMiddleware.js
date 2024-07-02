@@ -7,12 +7,14 @@ const verifyToken = (req, res, next) => {
   const token = req.cookies.token;
 
   if (!token) {
+    console.log('no token provided')
     return res.status(401).json({ error: "access denied. No token provided" });
   }
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.userId = decoded.userId;
+    console.log(req.userId,'kd')
     next();
   } catch (err) { 
     console.log("token verification error");
