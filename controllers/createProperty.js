@@ -25,28 +25,28 @@ exports.createProperty = async (req, res) => {
 
 
    // Function to fetch latitude and longitude from Google Maps Geocoding API
-   const fetchCoordinates = async (address) => {
-    try {
-      const response = await axios.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&${process.env.GOOGLE_MAPS_API_KEY}`
-      );
-      const { results } = response.data;
-      if (results && results.length > 0) {
-        const { geometry } = results[0];
-        const { location } = geometry;
-        return { latitude: location.lat, longitude: location.lng };
-      } else {
-        throw new Error(`Geocoding API error: ${response.data.status}`);
-      }
-    } catch (error) {
-      throw new Error(`Error fetching coordinates: ${error.message}`);
-    }
-  };
+  //  const fetchCoordinates = async (address) => {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&${process.env.GOOGLE_MAPS_API_KEY}`
+  //     );
+  //     const { results } = response.data;
+  //     if (results && results.length > 0) {
+  //       const { geometry } = results[0];
+  //       const { location } = geometry;
+  //       return { latitude: location.lat, longitude: location.lng };
+  //     } else {
+  //       throw new Error(`Geocoding API error: ${response.data.status}`);
+  //     }
+  //   } catch (error) {
+  //     throw new Error(`Error fetching coordinates: ${error.message}`);
+  //   }
+  // };
 
   //  fetch coordinates for the provided address
-  const { latitude, longitude } = await fetchCoordinates(address);
+  // const { latitude, longitude } = await fetchCoordinates(address);
 
-  console.log(latitude,longitude,'both coordinates kd')
+  // console.log(latitude,longitude,'both coordinates kd')
 
     // Process file uploads
     let images = [];
