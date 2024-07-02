@@ -20,11 +20,9 @@ exports.login = async (req, res) => {
       expiresIn: "30d",
     });
 
-    // Set token as a cookie with additional options
+    // Set token as a cookie
     res.cookie("token", token, {
-      httpOnly: true, // This helps prevent XSS attacks
-      secure: process.env.NODE_ENV === "production", // Ensures the cookie is only sent over HTTPS in production
-      sameSite: "Lax", // Helps prevent CSRF attacks
+      expiresIn: 30 * 24 * 60 * 60 * 1000, // expires in 30 days
     });
 
     // Send response with status 200 and JSON object
