@@ -43,6 +43,6 @@ app.use('/api/auth',authRoute);
 
 app.use('/api/properties',propertyRoute);
 
-app.listen(process.env.PORT,'0.0.0.0', () => {
+app.listen(process.env.PORT, () => {
   console.log(`server running on  http://192.168.1.77:${process.env.PORT}`);
 });
