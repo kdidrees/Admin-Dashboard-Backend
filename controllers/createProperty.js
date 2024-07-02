@@ -2,8 +2,7 @@
 
 const PropertyModel = require("../models/propertyModel");
 const path = require("path");
-const fs = require("fs");
-const { default: axios } = require("axios");
+const  axios  = require("axios");
 
 
 exports.createProperty = async (req, res) => {
